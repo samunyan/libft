@@ -16,20 +16,18 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
 	size_t	start;
-	size_t	len;
 
 	start = 0;
+	res = (char *)s1;
 	while (*s1 && ft_strchr(set, *s1) != NULL)
 	{
 		start++;
 		s1++;
 	}
-	len = 0;
-	while (*s1 && ft_strchr(set, *s1) == NULL)
-	{
+	while (*(s1 + 1))
 		s1++;
-		len++;
-	}
-	res = ft_substr(res, start, len);
+	while (*s1 && ft_strchr(set, *s1) != NULL)
+		s1--;
+	res = ft_substr(res, start, s1 - res);
 	return (res);
 }

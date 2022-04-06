@@ -29,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!dst)
 		return (NULL);
 	i = 0;
-	while (len && s[i])  // is s[i] check needed?
+	while (len && s[i])
 	{
 		dst[i] = s[i];
 		i++;
