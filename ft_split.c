@@ -47,7 +47,7 @@ static char	*ft_strndup(char const *s, size_t len)
 	char	*res;
 	size_t	i;
 
-	res = malloc(sizeof(res) * (len + 1));
+	res = malloc(sizeof(char) * (len + 1));
 	if (!res)
 		return (NULL);
 	i = 0;
