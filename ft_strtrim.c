@@ -30,6 +30,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		s1++;
 		len++;
 	}
-	res = ft_substr(s1, start, len);
+	res = ft_substr(res, start, len);
 	return (res);
 }
