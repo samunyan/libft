@@ -87,7 +87,7 @@ $(NAME):	$(OBJFILES)
 
 
 bonus:
-			make BONUS=1 all
+			BONUS=1 make all
 
 clean:
 			rm -f $(OBJS) $(B_OBJS)
