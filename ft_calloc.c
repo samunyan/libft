@@ -15,18 +15,12 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*dst;
-	size_t	i;
 	size_t	dstsize;
 
 	dstsize = count * size;
 	dst = malloc(dstsize);
 	if (!dst)
 		return (NULL);
-	i = 0;
-	while (i < dstsize)
-	{
-		*((char *)(dst + i)) = '\0';
-		i++;
-	}
+	ft_bzero(dst, dstsize);
 	return (dst);
 }

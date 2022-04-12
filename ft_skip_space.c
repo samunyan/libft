@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_skip_space.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 19:56:32 by samunyan          #+#    #+#             */
-/*   Updated: 2022/04/04 19:56:33 by samunyan         ###   ########.fr       */
+/*   Created: 2022/04/12 13:11:13 by samunyan          #+#    #+#             */
+/*   Updated: 2022/04/12 13:11:14 by samunyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+char	*ft_skip_space(const char *str)
 {
-	t_list	*current;
-	t_list	*next;
-
-	current = *lst;
-	while (current != NULL)
-	{
-		next = current->next;
-		ft_lstdelone(current, del);
-		current = next;
-	}
-	*lst = NULL;
+	while (*str && ft_isspace(*str))
+		str++;
+	return ((char *)str);
 }

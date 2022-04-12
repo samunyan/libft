@@ -51,8 +51,8 @@ SRCS	=	ft_atoi.c \
             ft_putchar_fd.c \
             ft_putstr_fd.c \
             ft_putendl_fd.c \
-            ft_putnbr_fd.c
-B_SRCS	=	ft_lstnew.c \
+            ft_putnbr_fd.c \
+            ft_lstnew.c \
 			ft_lstadd_front.c \
 			ft_lstsize.c \
 			ft_lstlast.c \
@@ -60,37 +60,31 @@ B_SRCS	=	ft_lstnew.c \
 			ft_lstdelone.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
-			ft_lstmap.c
-OBJS	=	$(SRCS:.c=.o)
-B_OBJS	=	$(B_SRCS:.c=.o)
-ifdef BONUS
-	OBJFILES = $(OBJS) $(B_OBJS)
-else
-	OBJFILES = $(OBJS)
-endif
+			ft_lstmap.c \
+			ft_isspace.c \
+			ft_skip_space.c \
+			ft_islower.c \
+			ft_isupper.c \
 
+OBJS	=	$(SRCS:.c=.o)
 INCS	=	-I $(INCDIR)
 
 #Compiler
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
 
-.PHONY:		all clean fclean re bonus
+.PHONY:		all clean fclean re
 
 all:		$(NAME)
 
-$(NAME):	$(OBJFILES)
-			ar rcs $(NAME) $(OBJFILES)
+$(NAME):	$(OBJS)
+			ar rcs $(NAME) $(OBJS)
 
 %.o:%.c
 			$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
-
-bonus:
-			BONUS=1 make all
-
 clean:
-			rm -f $(OBJS) $(B_OBJS)
+			rm -f $(OBJS)
 
 fclean:		clean
 			rm -f $(NAME)

@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 19:56:32 by samunyan          #+#    #+#             */
-/*   Updated: 2022/04/04 19:56:33 by samunyan         ###   ########.fr       */
+/*   Created: 2022/04/12 13:18:20 by samunyan          #+#    #+#             */
+/*   Updated: 2022/04/12 13:18:22 by samunyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+int	ft_islower(int c)
 {
-	t_list	*current;
-	t_list	*next;
-
-	current = *lst;
-	while (current != NULL)
-	{
-		next = current->next;
-		ft_lstdelone(current, del);
-		current = next;
-	}
-	*lst = NULL;
+	return ('a' <= c && c <= 'z');
 }

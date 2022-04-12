@@ -27,8 +27,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			while (new_head)
 			{
 				tmp = new_head->next;
-				del(new_head->content);
-				free(new_head);
+				ft_lstdelone(new_head, del);
 				new_head = tmp;
 			}
 			return (NULL);

@@ -12,19 +12,6 @@
 
 #include "libft.h"
 
-static int	ft_isspace(int c)
-{
-	return (c == '\t' || c == '\n' || c == '\v'
-		|| c == '\f' || c == '\r' || c == ' ');
-}
-
-static char	*ft_skip_space(const char *str)
-{
-	while (*str && ft_isspace(*str))
-		str++;
-	return ((char *)str);
-}
-
 int	ft_atoi(const char *str)
 {
 	long	nb;
