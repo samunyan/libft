@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 13:38:25 by samunyan          #+#    #+#             */
-/*   Updated: 2022/04/04 13:38:54 by samunyan         ###   ########.fr       */
+/*   Created: 2022/04/12 17:30:04 by samunyan          #+#    #+#             */
+/*   Updated: 2022/04/12 17:30:05 by samunyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strndup(char const *s, size_t len)
 {
+	char	*res;
 	size_t	i;
 
+	res = malloc(sizeof(char) * (len + 1));
+	if (!res)
+		return (NULL);
 	i = 0;
-	while (s[i])
+	while (s[i] && i < len)
+	{
+		res[i] = s[i];
 		i++;
-	return (i);
-}
-
-size_t	ft_strnlen(const char *s, size_t maxlen)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] && i < maxlen)
-		i++;
-	return (i);
+	}
+	res[i] = '\0';
+	return (res);
 }

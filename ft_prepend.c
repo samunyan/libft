@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_prepend.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 13:38:25 by samunyan          #+#    #+#             */
-/*   Updated: 2022/04/04 13:38:54 by samunyan         ###   ########.fr       */
+/*   Created: 2022/04/12 17:34:40 by samunyan          #+#    #+#             */
+/*   Updated: 2022/04/12 17:34:41 by samunyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_prepend(char **dst, const char *src)
 {
-	size_t	i;
+	char	*tmp;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strnlen(const char *s, size_t maxlen)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] && i < maxlen)
-		i++;
-	return (i);
+	if (!(*dst))
+		*dst = ft_strdup(src);
+	else
+	{
+		tmp = ft_strjoin(src, *dst);
+		free(*dst);
+		*dst = tmp;
+	}
+	return (*dst);
 }

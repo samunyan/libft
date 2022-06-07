@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_free_arr_until.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 13:38:25 by samunyan          #+#    #+#             */
-/*   Updated: 2022/04/04 13:38:54 by samunyan         ###   ########.fr       */
+/*   Created: 2022/04/12 17:30:47 by samunyan          #+#    #+#             */
+/*   Updated: 2022/04/12 17:30:50 by samunyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_free_arr_until(void **arr, size_t i)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strnlen(const char *s, size_t maxlen)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] && i < maxlen)
-		i++;
-	return (i);
+	while (i)
+	{
+		free(arr[i]);
+		i--;
+	}
+	free(arr[i]);
+	free(arr);
+	return (NULL);
 }

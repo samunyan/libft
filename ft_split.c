@@ -42,36 +42,6 @@ static size_t	get_token_len(char const *s, char c)
 	return (i);
 }
 
-static char	*ft_strndup(char const *s, size_t len)
-{
-	char	*res;
-	size_t	i;
-
-	res = malloc(sizeof(char) * (len + 1));
-	if (!res)
-		return (NULL);
-	i = 0;
-	while (s[i] && i < len)
-	{
-		res[i] = s[i];
-		i++;
-	}
-	res[i] = '\0';
-	return (res);
-}
-
-static void	*free_arr_until(char **arr, size_t i)
-{
-	while (i)
-	{
-		free(arr[i]);
-		i--;
-	}
-	free(arr[i]);
-	free(arr);
-	return (NULL);
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
@@ -91,7 +61,7 @@ char	**ft_split(char const *s, char c)
 		len = get_token_len(s, c);
 		arr[i] = ft_strndup(s, len);
 		if (!arr[i])
-			return (free_arr_until(arr, i));
+			return (ft_free_arr_until((void **)arr, i));
 		s += len;
 		i++;
 	}

@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memappend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 13:38:25 by samunyan          #+#    #+#             */
-/*   Updated: 2022/04/04 13:38:54 by samunyan         ###   ########.fr       */
+/*   Created: 2022/04/28 21:41:18 by samunyan          #+#    #+#             */
+/*   Updated: 2022/04/28 21:41:20 by samunyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_memappend(void **dst, const void *src, size_t dstsize,
+			size_t srcsize)
 {
-	size_t	i;
+	void	*tmp;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strnlen(const char *s, size_t maxlen)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] && i < maxlen)
-		i++;
-	return (i);
+	if (!(*dst))
+	{
+		*dst = malloc(srcsize);
+		if (!(*dst))
+			return (NULL);
+		*dst = ft_memmove(*dst, src, srcsize);
+	}
+	else
+	{
+		tmp = malloc(dstsize + srcsize);
+		if (tmp)
+		{
+			ft_memmove(tmp, *dst, dstsize);
+			ft_memmove(tmp + dstsize, src, srcsize);
+		}
+		free(*dst);
+		*dst = tmp;
+	}
+	return (*dst);
 }

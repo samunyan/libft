@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 13:38:25 by samunyan          #+#    #+#             */
-/*   Updated: 2022/04/04 13:38:54 by samunyan         ###   ########.fr       */
+/*   Created: 2022/04/12 13:26:58 by samunyan          #+#    #+#             */
+/*   Updated: 2022/04/12 13:26:59 by samunyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_printf(const char *fmt, ...)
 {
-	size_t	i;
+	int		i;
+	t_spec	spec;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strnlen(const char *s, size_t maxlen)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] && i < maxlen)
-		i++;
+	ft_bzero(&spec, sizeof(spec));
+	va_start(spec.sap, fmt);
+	i = ft_parse_format(fmt, &spec);
+	va_end(spec.sap);
+	if (i != -1)
+	{
+		i = spec.n_chars;
+		if (write(STDOUT_FILENO, spec.buffer, i) == -1)
+			i = -1;
+	}
+	free(spec.buffer);
 	return (i);
 }

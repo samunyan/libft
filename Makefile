@@ -13,7 +13,8 @@
 NAME	=	libft.a
 
 #Directories
-INCDIR	=	.
+INCDIR			=	.
+PRINTFDIR		= ft_printf
 
 #Files
 SRCS	=	ft_atoi.c \
@@ -65,28 +66,54 @@ SRCS	=	ft_atoi.c \
 			ft_skip_space.c \
 			ft_islower.c \
 			ft_isupper.c \
-
+			ft_free_arr_until.c \
+			ft_strndup.c \
+			ft_append.c \
+			ft_strnjoin.c \
+			ft_ultoa_base.c \
+			ft_prepend.c \
+			ft_memappend.c \
+			ft_strupcase.c \
+			ft_strcmp.c \
+			ft_get_next_line.c
 OBJS	=	$(SRCS:.c=.o)
 INCS	=	-I $(INCDIR)
+
+#Libs
+LIBFTPRINTF = $(PRINTFDIR)/libftprintf.a
 
 #Compiler
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
+ifeq ($(DEBUG), 1)
+	CFLAGS	+=	-g
+	ifeq ($(SAN), 1)
+		CFLAGS	+=	-fsanitize=address
+	endif
+endif
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re FORCE
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
+			cp $(LIBFTPRINTF) $(NAME)
 			ar rcs $(NAME) $(OBJS)
 
-%.o:%.c
+%.o:%.c		$(LIBFTPRINTF)
 			$(CC) $(CFLAGS) $(INCS) -c $< -o $@
+
+$(LIBFTPRINTF):	FORCE
+		make -C $(PRINTFDIR)
+
+FORCE:
 
 clean:
 			rm -f $(OBJS)
+			make clean -C $(PRINTFDIR)
 
 fclean:		clean
 			rm -f $(NAME)
+			make fclean -C $(PRINTFDIR)
 
 re:			fclean all

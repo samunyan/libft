@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 13:38:25 by samunyan          #+#    #+#             */
-/*   Updated: 2022/04/04 13:38:54 by samunyan         ###   ########.fr       */
+/*   Created: 2022/04/12 17:41:51 by samunyan          #+#    #+#             */
+/*   Updated: 2022/04/12 17:41:52 by samunyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strnjoin(char const *s1, char const *s2, size_t n)
 {
-	size_t	i;
+	char	*res;
+	size_t	len;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strnlen(const char *s, size_t maxlen)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] && i < maxlen)
-		i++;
-	return (i);
+	if (ft_strlen(s2) < n)
+		n = ft_strlen(s2);
+	len = ft_strlen(s1) + n;
+	res = malloc(sizeof(char) * (len + 1));
+	if (!res)
+		return (NULL);
+	while (*s1)
+	{
+		*res = *s1;
+		res++;
+		s1++;
+	}
+	while (n)
+	{
+		*res = *s2;
+		res++;
+		s2++;
+		n--;
+	}
+	*res = '\0';
+	return (res - len);
 }
