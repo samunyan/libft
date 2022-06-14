@@ -91,20 +91,39 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 
 char	*get_next_line(int fd);
 
-typedef struct s_list
+typedef struct s_sl_list
 {
 	void			*content;
-	struct s_list	*next;
-}	t_list;
+	struct s_sl_list	*next;
+}	t_sl_list;
 
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
-void	ft_lstclear(t_list **lst, void (*del)(void*));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_sl_list	*ft_sl_lstnew(void *content);
+int			ft_sl_lstsize(t_sl_list *lst);
+t_sl_list	*ft_sl_lstlast(t_sl_list *lst);
+void		ft_sl_lstadd_front(t_sl_list **lst, t_sl_list *new);
+void		ft_sl_lstadd_back(t_sl_list **lst, t_sl_list *new);
+void		ft_sl_lstdelone(t_sl_list *lst, void (*del)(void*));
+void		ft_sl_lstclear(t_sl_list **lst, void (*del)(void*));
+void		ft_sl_lstiter(t_sl_list *lst, void (*f)(void *));
+t_sl_list	*ft_sl_lstmap(t_sl_list *lst, void *(*f)(void *), void (*del)(void *));
+
+
+typedef struct	s_cdl_list
+{
+	void					*content;
+	struct s_cdl_list_node	*next;
+	struct s_cdl_list_node	*prev;
+}	t_cdl_list;
+
+t_cdl_list	*ft_cdl_lstnew(void *content);
+size_t		ft_cdl_lstsize(t_cdl_list *lst);
+t_cdl_list	*ft_cdl_lstlast(t_cdl_list *lst);
+void 		*ft_cdl_lstadd_front(t_cdl_list **lst, t_cdl_list *new);
+void 		ft_cdl_lstadd_back(t_cdl_list **lst, t_cdl_list *new);
+void 		ft_cdl_lstdelone(t_cdl_list *lst, void (*del)(void*));
+void 		ft_cdl_lstclear(t_cdl_list **lst, void (*del)(void*));
+void 		ft_cdl_lstiter(t_cdl_list *lst, void (*f)(void *));
+t_cdl_list	*ft_cdl_lst_set_sentinel(t_cdl_list *new_sentinel);
+t_cdl_list	*ft_cdl_lst_get_sentinel(t_cdl_list *lst);
 
 #endif
