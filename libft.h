@@ -91,39 +91,53 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 
 char	*get_next_line(int fd);
 
-typedef struct s_sl_list
+typedef struct s_s_list
 {
 	void			*content;
-	struct s_sl_list	*next;
-}	t_sl_list;
+	struct s_s_list	*next;
+}	t_s_list;
 
-t_sl_list	*ft_sl_lstnew(void *content);
-int			ft_sl_lstsize(t_sl_list *lst);
-t_sl_list	*ft_sl_lstlast(t_sl_list *lst);
-void		ft_sl_lstadd_front(t_sl_list **lst, t_sl_list *new);
-void		ft_sl_lstadd_back(t_sl_list **lst, t_sl_list *new);
-void		ft_sl_lstdelone(t_sl_list *lst, void (*del)(void*));
-void		ft_sl_lstclear(t_sl_list **lst, void (*del)(void*));
-void		ft_sl_lstiter(t_sl_list *lst, void (*f)(void *));
-t_sl_list	*ft_sl_lstmap(t_sl_list *lst, void *(*f)(void *), void (*del)(void *));
+t_s_list	*ft_s_lstnew(void *content);
+int			ft_s_lstsize(t_s_list *lst);
+t_s_list	*ft_s_lstlast(t_s_list *lst);
+void		ft_s_lstadd_front(t_s_list **lst, t_s_list *new);
+void		ft_s_lstadd_back(t_s_list **lst, t_s_list *new);
+// function to addd a node before a certain node
+// function to add a node after a certain node
+void		ft_s_lstdelone(t_s_list *lst, void (*del)(void*));
+void		ft_s_lstclear(t_s_list **lst, void (*del)(void*));
+void		ft_s_lstiter(t_s_list *lst, void (*f)(void *));
+t_s_list	*ft_s_lstmap(t_s_list *lst, void *(*f)(void *), void (*del)(void *));
 
-
-typedef struct	s_cdl_list
+typedef struct	s_d_list
 {
-	void					*content;
-	struct s_cdl_list_node	*next;
-	struct s_cdl_list_node	*prev;
-}	t_cdl_list;
+	void			*content;
+	struct s_d_list	*next;
+	struct s_d_list	*prev;
+}	t_d_list;
 
-t_cdl_list	*ft_cdl_lstnew(void *content);
-size_t		ft_cdl_lstsize(t_cdl_list *lst);
-t_cdl_list	*ft_cdl_lstlast(t_cdl_list *lst);
-void 		*ft_cdl_lstadd_front(t_cdl_list **lst, t_cdl_list *new);
-void 		ft_cdl_lstadd_back(t_cdl_list **lst, t_cdl_list *new);
-void 		ft_cdl_lstdelone(t_cdl_list *lst, void (*del)(void*));
-void 		ft_cdl_lstclear(t_cdl_list **lst, void (*del)(void*));
-void 		ft_cdl_lstiter(t_cdl_list *lst, void (*f)(void *));
-t_cdl_list	*ft_cdl_lst_set_sentinel(t_cdl_list *new_sentinel);
-t_cdl_list	*ft_cdl_lst_get_sentinel(t_cdl_list *lst);
+typedef struct s_cs_list
+{
+	void				*content;
+	struct s_cs_list	*next;
+}	t_cs_list;
+
+typedef struct	s_cd_list
+{
+	void				*content;
+	struct s_cd_list	*next;
+	struct s_cd_list	*prev;
+}	t_cd_list;
+
+t_cd_list	*ft_cd_lstnew(void *content);
+size_t		ft_cd_lstsize(t_cd_list *lst);
+t_cd_list	*ft_cd_lstlast(t_cd_list *lst);
+void 		*ft_cd_lstadd_front(t_cd_list **lst, t_cd_list *new);
+void 		ft_cd_lstadd_back(t_cd_list **lst, t_cd_list *new);
+void 		ft_cd_lstdelone(t_cd_list *lst, void (*del)(void*));
+void 		ft_cd_lstclear(t_cd_list **lst, void (*del)(void*));
+void 		ft_cd_lstiter(t_cd_list *lst, void (*f)(void *));
+t_cd_list	*ft_cd_lst_set_sentinel(t_cd_list *new_sentinel);
+t_cd_list	*ft_cd_lst_get_sentinel(t_cd_list *lst);
 
 #endif
