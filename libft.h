@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdint.h>
 # include "ft_printf/ft_printf.h"
 
 # define BUFFER_SIZE	128
@@ -108,6 +109,8 @@ void		ft_s_lstdelone(t_s_list *lst, void (*del)(void*));
 void		ft_s_lstclear(t_s_list **lst, void (*del)(void*));
 void		ft_s_lstiter(t_s_list *lst, void (*f)(void *));
 t_s_list	*ft_s_lstmap(t_s_list *lst, void *(*f)(void *), void (*del)(void *));
+t_s_list	*ft_s_lstfind_content(t_s_list *lst, void *content);
+size_t		ft_s_lstfind_position(t_s_list *lst, t_s_list *node);
 
 typedef struct	s_d_list
 {

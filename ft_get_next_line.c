@@ -41,12 +41,12 @@ static char	*get_line(char **buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[OPEN_MAX];
+	static char	*buffer[_SC_OPEN_MAX];
 	char		reader[BUFFER_SIZE + 1];
 	ssize_t		bytes_read;
 	char		*line;
 
-	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE < 1)
+	if (fd < 0 || fd >= _SC_OPEN_MAX || BUFFER_SIZE < 1)
 		return (NULL);
 	bytes_read = read(fd, reader, BUFFER_SIZE);
 	while (bytes_read > 0)

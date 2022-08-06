@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sl_lstdelone.c                                   :+:      :+:    :+:   */
+/*   ft_s_lstdelone.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_sl_lstdelone(t_sl_list *lst, void (*del)(void*))
+void	ft_s_lstdelone(t_s_list *lst, void (*del)(void*))
 {
 	del(lst->content);
 	free(lst);

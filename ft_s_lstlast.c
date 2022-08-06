@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sl_lstlast.c                                    :+:      :+:    :+:   */
+/*   ft_s_lstlast.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_sl_list	*ft_sl_lstlast(t_sl_list *lst)
+t_s_list	*ft_s_lstlast(t_s_list *lst)
 {
 	while (lst->next)
 		lst = lst->next;

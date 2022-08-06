@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sl_lstsize.c                                    :+:      :+:    :+:   */
+/*   ft_s_lstclear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 19:57:38 by samunyan          #+#    #+#             */
-/*   Updated: 2022/04/04 19:57:39 by samunyan         ###   ########.fr       */
+/*   Created: 2022/04/04 19:56:32 by samunyan          #+#    #+#             */
+/*   Updated: 2022/04/04 19:56:33 by samunyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_sl_lstsize(t_sl_list *lst)
+void	ft_s_lstclear(t_s_list **lst, void (*del)(void*))
 {
-	int	i;
+	t_s_list	*current;
+	t_s_list	*next;
 
-	i = 0;
-	while (lst)
+	current = *lst;
+	while (current != NULL)
 	{
-		i++;
-		lst = lst->next;
+		next = current->next;
+		ft_s_lstdelone(current, del);
+		current = next;
 	}
-	return (i);
+	*lst = NULL;
 }

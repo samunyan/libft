@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sl_lstmap.c                                     :+:      :+:    :+:   */
+/*   ft_s_lstadd_back.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 20:03:49 by samunyan          #+#    #+#             */
-/*   Updated: 2022/04/04 20:03:50 by samunyan         ###   ########.fr       */
+/*   Created: 2022/04/04 19:56:02 by samunyan          #+#    #+#             */
+/*   Updated: 2022/04/04 19:56:03 by samunyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_sl_list	*ft_sl_lstmap(t_sl_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_s_lstadd_back(t_s_list **lst, t_s_list *new)
 {
-	t_sl_list	*new_head;
-	t_sl_list	*new;
-	t_sl_list	*tmp;
+	t_s_list	*current;
 
-	new_head = NULL;
-	while (lst)
+	if (!*lst)
 	{
-		new = ft_sl_lstnew(f(lst->content));
-		if (!new)
-		{
-			while (new_head)
-			{
-				tmp = new_head->next;
-				ft_sl_lstdelone(new_head, del);
-				new_head = tmp;
-			}
-			return (NULL);
-		}
-		ft_sl_lstadd_back(&new_head, new);
-		lst = lst->next;
+		ft_s_lstadd_front(lst, new);
+		return ;
 	}
-	return (new_head);
+	current = *lst;
+	while (current->next)
+		current = current->next;
+	current->next = new;
+	new->next = NULL;
 }

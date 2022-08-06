@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sl_lstnew.c                                     :+:      :+:    :+:   */
+/*   ft_s_lstiter.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 19:55:39 by samunyan          #+#    #+#             */
-/*   Updated: 2022/04/04 19:55:40 by samunyan         ###   ########.fr       */
+/*   Created: 2022/04/04 20:03:43 by samunyan          #+#    #+#             */
+/*   Updated: 2022/04/04 20:03:44 by samunyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_sl_list	*ft_sl_lstnew(void *content)
+void	ft_s_lstiter(t_s_list *lst, void (*f)(void *))
 {
-	t_sl_list	*new;
-
-	new = malloc(sizeof(*new));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

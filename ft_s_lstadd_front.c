@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sl_lstadd_front.c                               :+:      :+:    :+:   */
+/*   ft_s_lstadd_front.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samunyan <samunyan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_sl_lstadd_front(t_sl_list **lst, t_sl_list *new)
+void	ft_s_lstadd_front(t_s_list **lst, t_s_list *new)
 {
 	new->next = *lst;
 	*lst = new;
