@@ -92,6 +92,18 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 
 char	*get_next_line(int fd);
 
+int		ft_abs(int n);
+int		ft_max(int a, int b);
+int		ft_min(int a, int b);
+int		*ft_get_lis(int a[], int n);
+int		ft_lis(int a[], int n);
+
+void	ft_swap(int *a, int *b);
+int		ft_binary_search(int *arr, int size, int n);
+void	ft_selection_sort(int a[], int n);
+void	ft_insertion_sort(int a[], int n);
+void	ft_quicksort(int a[], int lo, int hi);
+
 typedef struct s_s_list
 {
 	void			*content;
@@ -103,8 +115,6 @@ int			ft_s_lstsize(t_s_list *lst);
 t_s_list	*ft_s_lstlast(t_s_list *lst);
 void		ft_s_lstadd_front(t_s_list **lst, t_s_list *new);
 void		ft_s_lstadd_back(t_s_list **lst, t_s_list *new);
-// function to addd a node before a certain node
-// function to add a node after a certain node
 void		ft_s_lstdelone(t_s_list *lst, void (*del)(void*));
 void		ft_s_lstclear(t_s_list **lst, void (*del)(void*));
 void		ft_s_lstiter(t_s_list *lst, void (*f)(void *));

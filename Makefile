@@ -77,7 +77,16 @@ SRCS	=	ft_atoi.c \
 			ft_memappend.c \
 			ft_strupcase.c \
 			ft_strcmp.c \
-			ft_get_next_line.c
+			ft_get_next_line.c \
+			ft_max.c \
+			ft_min.c \
+			ft_lis.c \
+			ft_abs.c \
+			ft_binary_search.c \
+			ft_insertion_sort.c \
+			ft_quicksort.c \
+			ft_selection_sort.c \
+			ft_swap.c
 OBJS	=	$(SRCS:.c=.o)
 INCS	=	-I $(INCDIR)
 
