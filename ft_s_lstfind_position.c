@@ -1,16 +1,16 @@
 #include "libft.h"
 
-size_t ft_s_lstfind_position(t_s_list *lst, t_s_list *node)
+int	ft_s_lstfind_position(t_s_list *lst, t_s_list *node)
 {
-	size_t i;
+	int	i;
 
 	i = 0;
 	while (lst)
 	{
-		i++;
 		if (lst == node)
 			return (i);
+		i++;
 		lst = lst->next;
 	}
-	return (0);
+	return (-1);
 }

@@ -110,37 +110,6 @@ void		ft_s_lstclear(t_s_list **lst, void (*del)(void*));
 void		ft_s_lstiter(t_s_list *lst, void (*f)(void *));
 t_s_list	*ft_s_lstmap(t_s_list *lst, void *(*f)(void *), void (*del)(void *));
 t_s_list	*ft_s_lstfind_content(t_s_list *lst, void *content);
-size_t		ft_s_lstfind_position(t_s_list *lst, t_s_list *node);
-
-typedef struct	s_d_list
-{
-	void			*content;
-	struct s_d_list	*next;
-	struct s_d_list	*prev;
-}	t_d_list;
-
-typedef struct s_cs_list
-{
-	void				*content;
-	struct s_cs_list	*next;
-}	t_cs_list;
-
-typedef struct	s_cd_list
-{
-	void				*content;
-	struct s_cd_list	*next;
-	struct s_cd_list	*prev;
-}	t_cd_list;
-
-t_cd_list	*ft_cd_lstnew(void *content);
-size_t		ft_cd_lstsize(t_cd_list *lst);
-t_cd_list	*ft_cd_lstlast(t_cd_list *lst);
-void 		*ft_cd_lstadd_front(t_cd_list **lst, t_cd_list *new);
-void 		ft_cd_lstadd_back(t_cd_list **lst, t_cd_list *new);
-void 		ft_cd_lstdelone(t_cd_list *lst, void (*del)(void*));
-void 		ft_cd_lstclear(t_cd_list **lst, void (*del)(void*));
-void 		ft_cd_lstiter(t_cd_list *lst, void (*f)(void *));
-t_cd_list	*ft_cd_lst_set_sentinel(t_cd_list *new_sentinel);
-t_cd_list	*ft_cd_lst_get_sentinel(t_cd_list *lst);
+int			ft_s_lstfind_position(t_s_list *lst, t_s_list *node);
 
 #endif
