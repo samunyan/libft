@@ -96,11 +96,11 @@ LIBFTPRINTF = $(PRINTFDIR)/libftprintf.a
 #Compiler
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
-ifneq ($(filter 1,$(DEBUG)),)
-	CFLAGS	+=	-g
+ifeq ($(DEBUG), 1)
+	CFLAGS	+= -g
 endif
-ifneq ($(filter 1,$(SAN)),)
-	CFLAGS	+=	-g -fsanitize=address
+ifeq ($(SAN), 1)
+	CFLAGS	+= -g -fsanitize=address
 endif
 
 .PHONY:		all clean fclean re FORCE san debug
@@ -115,7 +115,7 @@ $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 $(LIBFTPRINTF):	FORCE
-		make -C $(PRINTFDIR)
+				make -C $(PRINTFDIR)
 
 FORCE:
 
