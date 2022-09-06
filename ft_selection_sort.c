@@ -3,7 +3,7 @@
 void	ft_selection_sort(int a[], int n)
 {
 	int	i;
-	int j;
+	int	j;
 	int	min;
 
 	i = 0;

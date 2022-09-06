@@ -1,12 +1,14 @@
 #include "libft.h"
 
-int ft_binary_search(int *arr, int size, int n)
+int	ft_binary_search(int *arr, int size, int n)
 {
-	int low = 0;
-	int high = size - 1;
-	int mid;
-	int guess;
+	int	low;
+	int	high;
+	int	mid;
+	int	guess;
 
+	low = 0;
+	high = size - 1;
 	while (low <= high)
 	{
 		mid = (low + high) / 2;

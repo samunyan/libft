@@ -2,9 +2,9 @@
 
 static int	*ft_get_len_of_increasing_sequences(int a[], int n)
 {
-	int *len_arr;
-	int i;
-	int j;
+	int	*len_arr;
+	int	i;
+	int	j;
 
 	len_arr = malloc(sizeof(int) * n);
 	if (!len_arr)
@@ -45,10 +45,9 @@ static int	ft_get_len_of_lis(int len_arr[], int n)
 	return (max_len);
 }
 
-
 int	ft_lis(int a[], int n)
 {
-	int *len_arr;
+	int	*len_arr;
 	int	max_len;
 
 	len_arr = ft_get_len_of_increasing_sequences(a, n);
@@ -59,11 +58,11 @@ int	ft_lis(int a[], int n)
 	return (max_len);
 }
 
-static int ft_get_end_index_of_lis(int n, int len_arr[])
+static int	ft_get_end_index_of_lis(int n, int len_arr[])
 {
-	int i;
-	int j;
-	int max;
+	int	i;
+	int	j;
+	int	max;
 
 	i = 0;
 	j = i;
@@ -80,13 +79,13 @@ static int ft_get_end_index_of_lis(int n, int len_arr[])
 	return (j);
 }
 
-int *ft_get_lis(int a[], int n)
+int	*ft_get_lis(int a[], int n)
 {
-	int *lis;
-	int *len_arr;
-	int max_len;
-	int i;
-	int j;
+	int	*lis;
+	int	*len_arr;
+	int	max_len;
+	int	i;
+	int	j;
 
 	len_arr = ft_get_len_of_increasing_sequences(a, n);
 	if (!len_arr)

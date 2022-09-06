@@ -30,14 +30,14 @@ INCS	=	$(addprefix -I ,$(INCDIR))
 #Compiler
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
-ifneq ($(filter 1,$(SAN)),)
+ifneq ($(filter 1,$(DEBUG)),)
 	CFLAGS	+=	-g
-	ifeq ($(SAN), 1)
-		CFLAGS	+=	-fsanitize=address
-	endif
+endif
+ifneq ($(filter 1,$(SAN)),)
+	CFLAGS	+=	-g -fsanitize=address
 endif
 
-.PHONY:		all  clean fclean re san
+.PHONY:		all  clean fclean re san debug
 
 all:		$(NAME)
 
@@ -57,3 +57,6 @@ re:			fclean all
 
 san:
 			@SAN=1 make re
+
+debug:
+			@DEBUG=1 make re

@@ -2,7 +2,7 @@
 
 static int	ft_partition(int a[], int lo, int hi)
 {
-	int		pivot;
+	int	pivot;
 	int	i;
 	int	j;
 
@@ -31,7 +31,7 @@ static int	ft_partition(int a[], int lo, int hi)
 
 void	ft_quicksort(int a[], int lo, int hi)
 {
-	int pivot;
+	int	pivot;
 
 	if (hi <= lo)
 		return ;

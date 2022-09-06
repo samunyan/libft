@@ -2,8 +2,8 @@
 
 void	ft_insertion_sort(int a[], int n)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i < n)
