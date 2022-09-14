@@ -38,7 +38,7 @@ static void	ft_get_minfieldwidth(const char **fmt, t_spec *spec)
 	{
 		spec->flags |= MINFW;
 		spec->minfw = ft_atoi(*fmt);
-		if (!atoi_is_valid(spec->minfw, *fmt))
+		if (!ft_atoi_is_valid(spec->minfw, *fmt))
 			spec->minfw = -1;
 		while (ft_isdigit(**fmt))
 			(*fmt)++;
@@ -55,7 +55,7 @@ static void	ft_get_precision(const char **fmt, t_spec *spec)
 		if (ft_isdigit(**fmt))
 		{
 			spec->prc = ft_atoi(*fmt);
-			if (!atoi_is_valid(spec->prc, *fmt))
+			if (!ft_atoi_is_valid(spec->prc, *fmt))
 				spec->prc = -1;
 			while (ft_isdigit(**fmt))
 				(*fmt)++;

@@ -35,7 +35,7 @@ static void	get_number_in_str(int n, char *s)
 	}
 }
 
-int	atoi_is_valid(int i, const char *str)
+int	ft_atoi_is_valid(int i, const char *str)
 {
 	char	check[12];
 	int		is_negative;
@@ -55,6 +55,8 @@ int	atoi_is_valid(int i, const char *str)
 	n = 0;
 	while (ft_isdigit(*(str + n)))
 		n++;
+	if (n == 0)
+		return (0);
 	if (is_negative)
 		return (!ft_strncmp(str, check + 1, n));
 	return (!ft_strncmp(str, check, n));

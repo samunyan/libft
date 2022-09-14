@@ -39,7 +39,7 @@ typedef struct s_spec
 	char			*buffer;
 }	t_spec;
 
-int		ft_printf(const char *fmt, ...);
+int		ft_printf(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
 int		ft_parse_format(const char *fmt, t_spec *spec);
 int		ft_get_spec(const char **fmt, t_spec *spec);
 int		ft_get_conversion(const char **fmt, t_spec *spec);

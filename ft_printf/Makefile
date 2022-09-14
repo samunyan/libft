@@ -31,13 +31,13 @@ INCS	=	$(addprefix -I ,$(INCDIR))
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
 ifeq ($(DEBUG), 1)
-	CFLAGS	+=	-g
-	ifeq ($(SAN), 1)
-		CFLAGS	+=	-fsanitize=address
-	endif
+	CFLAGS	+= -g
+endif
+ifeq ($(SAN), 1)
+	CFLAGS	+= -g -fsanitize=address
 endif
 
-.PHONY:		all  clean fclean re
+.PHONY:		all  clean fclean re san debug
 
 all:		$(NAME)
 
@@ -54,3 +54,9 @@ fclean:		clean
 			rm -f $(NAME)
 
 re:			fclean all
+
+san:
+			SAN=1 make re
+
+debug:
+			DEBUG=1 make re

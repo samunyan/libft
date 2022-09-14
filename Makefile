@@ -53,15 +53,17 @@ SRCS	=	ft_atoi.c \
             ft_putstr_fd.c \
             ft_putendl_fd.c \
             ft_putnbr_fd.c \
-            ft_lstnew.c \
-			ft_lstadd_front.c \
-			ft_lstsize.c \
-			ft_lstlast.c \
-			ft_lstadd_back.c \
-			ft_lstdelone.c \
-			ft_lstclear.c \
-			ft_lstiter.c \
-			ft_lstmap.c \
+            ft_s_lstnew.c \
+			ft_s_lstadd_front.c \
+			ft_s_lstsize.c \
+			ft_s_lstlast.c \
+			ft_s_lstadd_back.c \
+			ft_s_lstdelone.c \
+			ft_s_lstclear.c \
+			ft_s_lstiter.c \
+			ft_s_lstmap.c \
+			ft_s_lstfind_content.c \
+			ft_s_lstfind_position.c \
 			ft_isspace.c \
 			ft_skip_space.c \
 			ft_islower.c \
@@ -75,7 +77,17 @@ SRCS	=	ft_atoi.c \
 			ft_memappend.c \
 			ft_strupcase.c \
 			ft_strcmp.c \
-			ft_get_next_line.c
+			ft_get_next_line.c \
+			ft_max.c \
+			ft_min.c \
+			ft_lis.c \
+			ft_get_lis.c \
+			ft_abs.c \
+			ft_binary_search.c \
+			ft_insertion_sort.c \
+			ft_quicksort.c \
+			ft_selection_sort.c \
+			ft_swap.c
 OBJS	=	$(SRCS:.c=.o)
 INCS	=	-I $(INCDIR)
 
@@ -86,13 +98,13 @@ LIBFTPRINTF = $(PRINTFDIR)/libftprintf.a
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
 ifeq ($(DEBUG), 1)
-	CFLAGS	+=	-g
-	ifeq ($(SAN), 1)
-		CFLAGS	+=	-fsanitize=address
-	endif
+	CFLAGS	+= -g
+endif
+ifeq ($(SAN), 1)
+	CFLAGS	+= -g -fsanitize=address
 endif
 
-.PHONY:		all clean fclean re FORCE
+.PHONY:		all clean fclean re FORCE san debug
 
 all:		$(NAME)
 
@@ -104,7 +116,7 @@ $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 $(LIBFTPRINTF):	FORCE
-		make -C $(PRINTFDIR)
+			make -C $(PRINTFDIR)
 
 FORCE:
 
@@ -117,3 +129,9 @@ fclean:		clean
 			make fclean -C $(PRINTFDIR)
 
 re:			fclean all
+
+san:
+			SAN=1 make re
+
+debug:
+			DEBUG=1 make re
