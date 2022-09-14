@@ -56,7 +56,7 @@ fclean:		clean
 re:			fclean all
 
 san:
-			@SAN=1 make re
+			SAN=1 make re
 
 debug:
-			@DEBUG=1 make re
+			DEBUG=1 make re

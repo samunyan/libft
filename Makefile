@@ -81,6 +81,7 @@ SRCS	=	ft_atoi.c \
 			ft_max.c \
 			ft_min.c \
 			ft_lis.c \
+			ft_get_lis.c \
 			ft_abs.c \
 			ft_binary_search.c \
 			ft_insertion_sort.c \
@@ -130,7 +131,7 @@ fclean:		clean
 re:			fclean all
 
 san:
-			@SAN=1 make re
+			SAN=1 make re
 
 debug:
-			@DEBUG=1 make re
+			DEBUG=1 make re
