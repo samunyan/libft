@@ -115,7 +115,7 @@ $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 $(LIBFTPRINTF):	FORCE
-				make -C $(PRINTFDIR)
+			make -C $(PRINTFDIR)
 
 FORCE:
 
