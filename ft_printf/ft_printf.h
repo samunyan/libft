@@ -40,6 +40,7 @@ typedef struct s_spec
 }	t_spec;
 
 int		ft_printf(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
+int		ft_dprintf(int fd, const char *fmt, ...) __attribute__((format(printf, 2, 3)));
 int		ft_parse_format(const char *fmt, t_spec *spec);
 int		ft_get_spec(const char **fmt, t_spec *spec);
 int		ft_get_conversion(const char **fmt, t_spec *spec);
