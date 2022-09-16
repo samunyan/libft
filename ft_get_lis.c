@@ -61,7 +61,7 @@ static int	ft_get_end_index_of_lis(int n, int len_arr[])
 	return (j);
 }
 
-static int *ft_get_lis_helper(int a[], int n, int *len_arr, int max_len)
+static int	*ft_get_lis_helper(int a[], int n, int *len_arr, int max_len)
 {
 	int	*lis;
 	int	i;

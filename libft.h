@@ -50,6 +50,7 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_strcmp(const char *s1, const char *s2);
 
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char		*ft_strstr(const char *haystack, const char *needle);
 int			ft_atoi(const char *str);
 int			ft_atoi_is_valid(int i, const char *str);
 void		*ft_calloc(size_t count, size_t size);
@@ -79,6 +80,7 @@ void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		*ft_free_arr_until(void **arr, size_t i);
+void		*ft_free_str_arr(char **arr);
 char		*ft_strupcase(char *str);
 
 void		*ft_memset(void *b, int c, size_t len);

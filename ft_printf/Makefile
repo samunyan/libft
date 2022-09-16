@@ -17,6 +17,7 @@ INCDIR	=	.
 
 #Files
 SRCS	=	ft_printf.c \
+			ft_dprintf.c \
 			ft_parse_format.c \
 			ft_get_spec.c \
 			ft_convert_diux.c \

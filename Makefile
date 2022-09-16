@@ -36,6 +36,7 @@ SRCS	=	ft_atoi.c \
             ft_strlcpy.c \
             ft_strlen.c \
             ft_strnstr.c \
+            ft_strstr.c \
             ft_strncmp.c\
             ft_strrchr.c \
             ft_tolower.c \
@@ -69,6 +70,7 @@ SRCS	=	ft_atoi.c \
 			ft_islower.c \
 			ft_isupper.c \
 			ft_free_arr_until.c \
+			ft_free_str_arr.c \
 			ft_strndup.c \
 			ft_append.c \
 			ft_strnjoin.c \
