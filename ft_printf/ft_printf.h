@@ -40,7 +40,8 @@ typedef struct s_spec
 }	t_spec;
 
 int		ft_printf(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
-int		ft_dprintf(int fd, const char *fmt, ...) __attribute__((format(printf, 2, 3)));
+int		ft_dprintf(int fd, const char *fmt,
+			...) __attribute__((format(printf, 2, 3)));
 int		ft_parse_format(const char *fmt, t_spec *spec);
 int		ft_get_spec(const char **fmt, t_spec *spec);
 int		ft_get_conversion(const char **fmt, t_spec *spec);
@@ -52,7 +53,6 @@ int		ft_convert_u(t_spec *spec);
 int		ft_convert_x_low(t_spec *spec);
 int		ft_convert_x_up(t_spec *spec);
 int		ft_convert_percent(t_spec *spec);
-
 char	*ft_get_padded_string(t_spec *spec, size_t n_chars, int c);
 int		ft_get_precision_fill(t_spec *spec, long d);
 int		ft_get_zero_or_blank_fill(t_spec *spec, long d);
