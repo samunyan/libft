@@ -80,7 +80,7 @@ void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		*ft_free_arr_until(void **arr, size_t i);
-void		*ft_free_str_arr(char **arr);
+void		*ft_free_arr(void **arr);
 char		*ft_strupcase(char *str);
 
 void		*ft_memset(void *b, int c, size_t len);
@@ -124,5 +124,6 @@ t_s_list	*ft_s_lstmap(t_s_list *lst, void *(*f)(void *),
 				void (*del)(void *));
 t_s_list	*ft_s_lstfind_content(t_s_list *lst, void *content);
 int			ft_s_lstfind_position(t_s_list *lst, t_s_list *node);
+t_s_list	*ft_s_lstnode_at(t_s_list *list, int index);
 
 #endif

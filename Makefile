@@ -65,12 +65,13 @@ SRCS	=	ft_atoi.c \
 			ft_s_lstmap.c \
 			ft_s_lstfind_content.c \
 			ft_s_lstfind_position.c \
+			ft_s_lstnode_at.c \
 			ft_isspace.c \
 			ft_skip_space.c \
 			ft_islower.c \
 			ft_isupper.c \
 			ft_free_arr_until.c \
-			ft_free_str_arr.c \
+			ft_free_arr.c \
 			ft_strndup.c \
 			ft_append.c \
 			ft_strnjoin.c \
