@@ -1,6 +1,6 @@
 #include "libft.h"
 
-void	*ft_free_str_arr(char **arr)
+void	*ft_free_arr(void **arr)
 {
 	size_t	i;
 
