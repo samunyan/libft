@@ -21,7 +21,9 @@ static int	*ft_get_len_of_increasing_sequences(int a[], int n)
 	len_arr = malloc(sizeof(int) * n);
 	if (!len_arr)
 		return (NULL);
-	ft_memset(len_arr, 1, n);
+	i = 0;
+	while (i < n)
+		len_arr[i++] = 1;
 	i = 0;
 	while (i < n)
 	{
