@@ -16,23 +16,17 @@ static int	ft_partition(int a[], int lo, int hi)
 {
 	int	i;
 	int	j;
+	int pivot;
 
+	pivot = a[lo];
 	i = lo + 1;
 	j = hi;
 	while (1)
 	{
-		while (a[i] < a[lo])
-		{
-			if (i == hi)
-				break ;
+		while (i < hi && a[i] < pivot)
 			i++;
-		}
-		while (a[j] > a[lo])
-		{
-			if (j == lo)
-				break ;
+		while (j > lo && a[j] > pivot)
 			j--;
-		}
 		if (i >= j)
 			break ;
 		ft_swap(&a[i], &a[j]);
