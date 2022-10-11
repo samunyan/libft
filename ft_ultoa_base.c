@@ -40,10 +40,14 @@ char	*ft_ultoa_base(unsigned long n, char *base)
 		return (NULL);
 	s[len] = '\0';
 	if (n == 0)
-		s[--len] = '0';
+	{
+		len--;
+		s[len] = '0';
+	}
 	while (n > 0)
 	{
-		s[--len] = base[n % radix];
+		len--;
+		s[len] = base[n % radix];
 		n /= radix;
 	}
 	return (s);
@@ -62,10 +66,14 @@ char	*ft_ulltoa_base(unsigned long long n, char *base)
 		return (NULL);
 	s[len] = '\0';
 	if (n == 0)
-		s[--len] = '0';
+	{
+		len--;
+		s[len] = '0';
+	}
 	while (n > 0)
 	{
-		s[--len] = base[n % radix];
+		len--;
+		s[len] = base[n % radix];
 		n /= radix;
 	}
 	return (s);
@@ -84,10 +92,14 @@ char	*ft_utoa_base(unsigned int n, char *base)
 		return (NULL);
 	s[len] = '\0';
 	if (n == 0)
-		s[--len] = '0';
+	{
+		len--;
+		s[len] = '0';
+	}
 	while (n > 0)
 	{
-		s[--len] = base[n % radix];
+		len--;
+		s[len] = base[n % radix];
 		n /= radix;
 	}
 	return (s);

@@ -14,24 +14,24 @@
 
 static int	ft_partition(int a[], int lo, int hi)
 {
-	int	pivot;
 	int	i;
 	int	j;
 
-	pivot = a[lo];
-	i = lo;
-	j = hi + 1;
+	i = lo + 1;
+	j = hi;
 	while (1)
 	{
-		while (a[++i] < pivot)
+		while (a[i] < a[lo])
 		{
 			if (i == hi)
 				break ;
+			i++;
 		}
-		while (a[--j] > pivot)
+		while (a[j] > a[lo])
 		{
 			if (j == lo)
 				break ;
+			j--;
 		}
 		if (i >= j)
 			break ;

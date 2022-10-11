@@ -28,7 +28,8 @@ static void	get_number_in_str(int n, char *s)
 		s[0] = '-';
 	while (nb >= 0)
 	{
-		s[--i] = (nb % 10) + '0';
+		i--;
+		s[i] = (nb % 10) + '0';
 		nb /= 10;
 		if (nb == 0)
 			break ;
