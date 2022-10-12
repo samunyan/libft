@@ -19,7 +19,7 @@ static void	set_int_arr_to(int a[], int n, int val)
 	i = 0;
 	while (i < n)
 	{
-		a[i] = 1;
+		a[i] = val;
 		i++;
 	}
 }
