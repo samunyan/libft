@@ -16,7 +16,7 @@ static int	ft_partition(int a[], int lo, int hi)
 {
 	int	i;
 	int	j;
-	int pivot;
+	int	pivot;
 
 	pivot = a[lo];
 	i = lo + 1;
