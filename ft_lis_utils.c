@@ -12,7 +12,19 @@
 
 #include "libft.h"
 
-static int	*ft_get_len_of_increasing_sequences(int a[], int n)
+static void	set_int_arr_to(int a[], int n, int val)
+{
+	int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		a[i] = val;
+		i++;
+	}
+}
+
+int	*ft_get_len_of_increasing_sequences(int a[], int n)
 {
 	int	*len_arr;
 	int	i;
@@ -21,9 +33,7 @@ static int	*ft_get_len_of_increasing_sequences(int a[], int n)
 	len_arr = malloc(sizeof(int) * n);
 	if (!len_arr)
 		return (NULL);
-	i = 0;
-	while (i < n)
-		len_arr[i++] = 1;
+	set_int_arr_to(len_arr, n, 1);
 	i = 0;
 	while (i < n)
 	{
@@ -39,7 +49,7 @@ static int	*ft_get_len_of_increasing_sequences(int a[], int n)
 	return (len_arr);
 }
 
-static int	ft_get_len_of_lis(int len_arr[], int n)
+int	ft_get_len_of_lis(int len_arr[], int n)
 {
 	int	max_len;
 	int	i;
@@ -54,7 +64,7 @@ static int	ft_get_len_of_lis(int len_arr[], int n)
 	return (max_len);
 }
 
-static int	ft_get_end_index_of_lis(int n, int len_arr[])
+int	ft_get_end_index_of_lis(int n, int len_arr[])
 {
 	int	i;
 	int	j;
@@ -73,44 +83,4 @@ static int	ft_get_end_index_of_lis(int n, int len_arr[])
 		i++;
 	}
 	return (j);
-}
-
-static int	*ft_get_lis_helper(int a[], int n, int *len_arr, int max_len)
-{
-	int	*lis;
-	int	i;
-	int	j;
-
-	lis = malloc(sizeof(int) * (max_len + 1));
-	if (!lis)
-		return (NULL);
-	lis[0] = max_len;
-	i = ft_get_end_index_of_lis(n, len_arr);
-	lis[max_len] = a[i];
-	j = i - 1;
-	while (j >= 0)
-	{
-		if (a[j] < a[i] && len_arr[j] == len_arr[i] - 1)
-		{
-			i = j;
-			lis[--max_len] = a[i];
-		}
-		j--;
-	}
-	return (lis);
-}
-
-int	*ft_get_lis(int a[], int n)
-{
-	int	*lis;
-	int	*len_arr;
-	int	max_len;
-
-	len_arr = ft_get_len_of_increasing_sequences(a, n);
-	if (!len_arr)
-		return (NULL);
-	max_len = ft_get_len_of_lis(len_arr, n);
-	lis = ft_get_lis_helper(a, n, len_arr, max_len);
-	free(len_arr);
-	return (lis);
 }

@@ -97,8 +97,12 @@ char		*get_next_line(int fd);
 int			ft_abs(int n);
 int			ft_max(int a, int b);
 int			ft_min(int a, int b);
+
 int			*ft_get_lis(int a[], int n);
 int			ft_lis(int a[], int n);
+int			*ft_get_len_of_increasing_sequences(int a[], int n);
+int			ft_get_len_of_lis(int len_arr[], int n);
+int			ft_get_end_index_of_lis(int n, int len_arr[]);
 
 void		ft_swap(int *a, int *b);
 int			ft_binary_search(int *arr, int size, int n);

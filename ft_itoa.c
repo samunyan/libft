@@ -52,7 +52,10 @@ char	*ft_utoa(unsigned int n)
 		return (NULL);
 	s[i] = '\0';
 	if (n == 0)
-		s[--i] = '0';
+	{
+		i--;
+		s[i] = '0';
+	}
 	while (n > 0)
 	{
 		i--;
